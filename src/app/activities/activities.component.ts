@@ -8,6 +8,7 @@ import { BaseChartDirective } from 'ng2-charts';
 })
 export class ActivitiesComponent implements OnInit {
   @Input() onEditActivity: boolean;
+  @Input() onDeleteActivity: boolean;
   pieChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
   pieChartData: number[] = [300, 500, 100];
   pieChartType = 'pie';
@@ -24,6 +25,14 @@ export class ActivitiesComponent implements OnInit {
 
   hideModal(event) {
     this.onEditActivity = false;
+  }
+
+  hideConfirmation(event) {
+    this.onDeleteActivity = false;
+  }
+
+  deleteActivity(event) {
+    this.onDeleteActivity = true;
   }
 
 }

@@ -10,6 +10,9 @@ import { ActivitiesListComponent } from './activities/activities-list/activities
 import { ChartsModule } from 'ng2-charts';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 import { L_SEMANTIC_UI_MODULE } from 'angular2-semantic-ui';
+import { DatePickerComponent } from './datepicker/datepicker.component';
+import { DatePickerDirective } from './datepicker/datepicker.directive';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { L_SEMANTIC_UI_MODULE } from 'angular2-semantic-ui';
     HeaderComponent,
     ActivitiesComponent,
     ActivitiesListComponent,
-    DialogBoxComponent
+    DialogBoxComponent,
+    DatePickerDirective,
+    DatePickerComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +31,13 @@ import { L_SEMANTIC_UI_MODULE } from 'angular2-semantic-ui';
     ChartsModule,
     L_SEMANTIC_UI_MODULE
   ],
-  providers: [],
+  providers: [
+    DatePickerDirective,
+    DatePickerComponent
+  ],
+  entryComponents: [
+    DatePickerComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

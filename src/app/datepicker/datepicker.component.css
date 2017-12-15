@@ -1,0 +1,258 @@
+.ng2-datetime-picker-wrapper {
+  position: relative;
+}
+
+.ng2-datetime-picker {
+  color: #333;
+  outline-width: 0;
+  font: normal 14px;
+  border: 1px solid #bababc;
+  display: inline-block;
+  background: #fff;
+  animation: slideDown 0.1s ease-in-out;
+  animation-fill-mode: both;
+  width: 225px;
+  border-radius: .28571429rem;
+  box-shadow: 0 2px 4px 0 rgba(34,36,38,.12), 0 2px 10px 0 rgba(34,36,38,.15);
+}
+.ng2-datetime-picker.bottom{
+    margin-top: 10px;
+}
+.ng2-datetime-picker.top{
+    margin-bottom: 10px;
+}
+.ng2-datetime-picker.bottom:before {
+    position: absolute;
+    content: '';
+    width: .71428571em;
+    height: .71428571em;
+    background: #fff;
+    -webkit-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+    z-index: 2;
+    box-shadow: 1px 1px 0 0 #bababc;
+    top: -5px;
+    left: 15px;
+}
+.ng2-datetime-picker.top:before {
+    position: absolute;
+    content: '';
+    width: .71428571em;
+    height: .71428571em;
+    background: #fff;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    z-index: 2;
+    box-shadow: 1px 1px 0 0 #bababc;
+    bottom: -5px;
+    left: 15px;
+}
+.ng2-datetime-picker .days {
+  width: 225px; /* 30 x 7 days */
+  padding: 0 5px;
+}
+.ng2-datetime-picker .close-button {
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  right: 0;
+  z-index: 1;
+  padding: 0 5px;
+}
+.ng2-datetime-picker .close-button:before {
+  content: 'X';
+  cursor: pointer;
+  color: #ff0000;
+}
+.ng2-datetime-picker > .month {
+  text-align: center;
+  line-height: 22px;
+  padding: 10px 5px;
+  background: #fcfcfc;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+
+.ng2-datetime-picker > .month > .prev_next {
+  color: #555;
+  display: block;
+  outline: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 25px;
+  text-align: center;
+}
+.ng2-datetime-picker > .month > .prev_next.prev {
+  float: left;
+}
+.ng2-datetime-picker > .month > .prev_next.next {
+  float: right;
+}
+
+.ng2-datetime-picker .week-numbers-and-days {
+  text-align: center;
+}
+.ng2-datetime-picker .week-numbers {
+  line-height: 30px;
+  display: inline-block;
+  padding: 30px 0 0 0;
+  color: #ddd;
+  text-align: right;
+  width: 21px;
+  vertical-align: top;
+}
+
+.ng2-datetime-picker  .days {
+  display: inline-block;
+  text-align: center;
+  width: 225px; /* 30 x 7 days */
+}
+.ng2-datetime-picker .months{
+  margin:0; 
+  width: 100%;
+}
+.ng2-datetime-picker .months .month{
+  cursor:pointer;
+}
+.ng2-datetime-picker .days .day-of-week,
+.ng2-datetime-picker .days .day {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border: 1px solid transparent;
+  width: 30px;
+  line-height: 28px;
+  float: left;
+}
+.ng2-datetime-picker .days .day-of-week {
+  font-weight: bold;
+}
+.ng2-datetime-picker .days .day:not(.selectable) {
+  color: #ccc;
+  cursor: default;
+}
+.ng2-datetime-picker .days .day.selectable  {
+  cursor: pointer;
+}
+.ng2-datetime-picker .days .day.selected,
+.ng2-datetime-picker .months .month.selected {
+  background: #2196f3;
+  color: #fff;
+}
+.ng2-datetime-picker .days .day:not(.selected).selectable:hover,
+.ng2-datetime-picker .months .month:not(.selected):hover {
+  background: #eee;
+}
+.ng2-datetime-picker .days:after {
+  content: '';
+  display: block;
+  clear: left;
+  height: 0;
+}
+.ng2-datetime-picker .time {
+  position: relative;
+  padding: 10px;
+  text-transform: Capitalize;
+}
+.ng2-datetime-picker .year-selector {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fff;
+  height: 100%;
+  overflow: auto; 
+  padding: 5px;
+  z-index: 2;
+}
+.ng2-datetime-picker .year-selector .locale{
+  text-align: center;
+}
+.ng2-datetime-picker .year-selector .year {
+  display: inline-block;
+  cursor: pointer;
+  padding: 2px 5px;
+}
+.ng2-datetime-picker .year-selector .year:hover {
+  background-color: #ddd;
+}
+.ng2-datetime-picker .select-current-time {
+  position: absolute;
+  top: 1em;
+  right: 5px;
+  z-index: 1;
+  cursor: pointer;
+  color: #0000ff;
+}
+.ng2-datetime-picker .hourLabel,
+.ng2-datetime-picker .minutesLabel {
+  display: inline-block;
+  width: 45px;
+  vertical-align: top;
+}
+.closing-layer {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0,0,0,0);
+}
+
+.ng2-datetime-picker .shortcuts {
+  padding: 10px;
+  text-align: center;
+}
+
+.ng2-datetime-picker .shortcuts a {
+  font-family: Sans-serif;
+  margin: 0 0.5em;
+  text-decoration: none;
+}
+
+@keyframes slideDown {
+  0% {
+    transform:  translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@media (max-width: 767px) {
+  .ng2-datetime-picker {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;    
+    width: auto !important;
+    animation: slideUp 0.1s ease-in-out;
+  }
+
+  .ng2-datetime-picker > .days {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .closing-layer {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,0.2);
+  }
+}

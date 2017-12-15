@@ -22,15 +22,21 @@
     <div class="two fields">
       <div class="field">
         <label>Date</label>
-        <div class="ui calendar" id="example1">
+        <div id="date" class="date field">
+          <input type="text" placeholder="yyyy/mm/dd" appDatePicker date-only="true" date-format="YYYY/MM/DD">
+        </div>
+        <!-- <div class="ui calendar" id="example1">
           <div class="ui input left icon">
             <i class="calendar icon"></i>
             <input type="text" placeholder="Date/Time">
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="field">
         <label>Time</label>
+        <div id="time" class="field">
+          <input type="text" placeholder="hh:mm" appDatePicker time-only="true" date-format="HH:MM">
+        </div>
       </div>
     </div>
   </form>

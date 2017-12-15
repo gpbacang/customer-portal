@@ -18,15 +18,20 @@
       </div>
       <div class="ten wide column">
         <div class="list-content">
-          <app-activities-list (editActivity)="showModal($event)"></app-activities-list>
+          <app-activities-list (editActivity)="showModal($event)" (deleteActivity)="deleteActivity($event)"></app-activities-list>
         </div>
       </div>
       <div class="six wide column">
         <div style="display: block">
-          <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"></canvas>
+          <canvas baseChart 
+            [data]="pieChartData" 
+            [labels]="pieChartLabels" 
+            [chartType]="pieChartType"
+            [legend]=false></canvas>
         </div>
       </div>
     </div>
   </div>
 </div>
 <app-dialog-box [onEditActivity]="onEditActivity" (hideModal)="hideModal($event)"></app-dialog-box>
+<app-confirmation-dialog [onDeleteActivity]="onDeleteActivity" (hideModal)="hideConfirmation($event)"></app-confirmation-dialog>

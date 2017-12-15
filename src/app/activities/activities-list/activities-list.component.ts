@@ -9,6 +9,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class ActivitiesListComponent implements OnInit {
   @Output() editActivity = new EventEmitter();
+  @Output() deleteActivity = new EventEmitter();
 
   constructor(
     // private dialogService: DialogService
@@ -20,6 +21,10 @@ export class ActivitiesListComponent implements OnInit {
   onEdit() {
     this.editActivity.emit();
     // this.dialogService.open(ActivitiesFormComponent, { title: 'Update Project', process: 'update', activity: activity });
+  }
+
+  onDelete() {
+    this.deleteActivity.emit();
   }
 
 }

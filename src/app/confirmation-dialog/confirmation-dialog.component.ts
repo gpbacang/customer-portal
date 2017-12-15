@@ -1,15 +1,14 @@
 import { Component, OnInit, Input, OnChanges, Output, EventEmitter, AfterViewInit } from '@angular/core';
 
-// import * as $ from 'jquery';
 declare var $: any;
 
 @Component({
-  selector: 'app-dialog-box',
-  templateUrl: './dialog-box.component.html',
-  styleUrls: ['./dialog-box.component.scss']
+  selector: 'app-confirmation-dialog',
+  templateUrl: './confirmation-dialog.component.html',
+  styleUrls: ['./confirmation-dialog.component.scss']
 })
-export class DialogBoxComponent implements OnInit, OnChanges, AfterViewInit {
-  @Input() onEditActivity: boolean;
+export class ConfirmationDialogComponent implements OnInit, OnChanges {
+  @Input() onDeleteActivity: boolean;
   @Output() hideModal = new EventEmitter();
   modalOptions: any;
   showModal: boolean;
@@ -24,13 +23,8 @@ export class DialogBoxComponent implements OnInit, OnChanges, AfterViewInit {
     };
   }
 
-  ngAfterViewInit() {
-    // $('.ui.selection.dropdown').dropdown();
-  }
-
   activeModal(): void {
     this.showModal = true;
-    $('.ui.selection.dropdown').dropdown();
   }
 
   cancel(): void {
@@ -39,13 +33,13 @@ export class DialogBoxComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   ngOnChanges(changes: any) {
-    if (this.onEditActivity === true) {
+    if (this.onDeleteActivity === true) {
       this.showDialog();
     }
   }
 
   showDialog() {
-    if (this.onEditActivity === true) {
+    if (this.onDeleteActivity === true) {
       this.activeModal();
     }
   }

@@ -18,15 +18,15 @@
       </div>
       <div class="ten wide column">
         <div class="list-content">
-          <app-activities-list></app-activities-list>
+          <app-activities-list (editActivity)="editActivity($event)"></app-activities-list>
         </div>
       </div>
       <div class="six wide column">
         <div style="display: block">
-          <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
-            (chartClick)="chartClicked($event)"></canvas>
+          <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"></canvas>
         </div>
       </div>
     </div>
   </div>
 </div>
+<app-dialog-box [onEditActivity]="onEditActivity"></app-dialog-box>

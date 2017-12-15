@@ -1,0 +1,32 @@
+<div class="pages">
+  <div class="page-header">
+    <div class="title-wrapper">
+      <h2 class="title">Schedule Activities</h2>
+       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </div>
+    <div class="page-actions">
+      <button class="ui primary medium button fluid">Add Activity</button>
+    </div>
+  </div>
+  <div class="page-content">
+    <div class="ui grid">
+      <div class="list-header">
+        <span class="large number-of-items">
+          <i class="building outline icon"></i>
+          100 Activities
+        </span>
+      </div>
+      <div class="ten wide column">
+        <div class="list-content">
+          <app-activities-list></app-activities-list>
+        </div>
+      </div>
+      <div class="six wide column">
+        <div style="display: block">
+          <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
+            (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

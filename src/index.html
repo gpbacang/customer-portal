@@ -7,6 +7,24 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="assets/semantic/dist/semantic.min.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <script src="assets/semantic/dist/semantic.min.js"></script>
+  <script src="node_modules/chart.js/src/chart.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDpZwcOzZLWXLlN52mvskovBDR_1L16-Tk",
+      authDomain: "customer-portal-fa075.firebaseapp.com",
+      databaseURL: "https://customer-portal-fa075.firebaseio.com",
+      projectId: "customer-portal-fa075",
+      storageBucket: "",
+      messagingSenderId: "335509973193"
+    };
+    firebase.initializeApp(config);
+  </script>
 </head>
 <body>
   <app-root></app-root>

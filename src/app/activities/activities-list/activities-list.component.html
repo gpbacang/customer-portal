@@ -1,0 +1,72 @@
+<!-- <div>
+  <div class="list-header ui grid fluid">
+    <div class="six wide column">Activity</div>
+    <div class="four wide column">Category</div>
+    <div class="three wide column">Date</div>
+    <div class="three wide column">Time</div>
+  </div>
+  <div class="activity-cards">
+     <app-activity-card></app-activity-card>
+  </div>
+</div> -->
+<table class="ui very basic table">
+  <thead>
+    <tr>
+      <th>Activity</th>
+      <th>Category</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Activity 1</td>
+      <td>Category 1</td>
+      <td>08/12/2017</td>
+      <td>13:45</td>
+      <td>
+        <div class="ui icon basic buttons" *ngIf="!notCurrentPeriod">
+          <button class="ui button">
+            <i class="write icon"></i>
+          </button>
+          <button class="ui button">
+            <i class="trash icon"></i>
+          </button>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Activity 1</td>
+      <td>Category 1</td>
+      <td>08/12/2017</td>
+      <td>13:45</td>
+      <td>
+        <div class="ui icon basic buttons" *ngIf="!notCurrentPeriod">
+          <button class="ui button">
+            <i class="write icon"></i>
+          </button>
+          <button class="ui button">
+            <i class="trash icon"></i>
+          </button>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Activity 1</td>
+      <td>Category 1</td>
+      <td>08/12/2017</td>
+      <td>13:45</td>
+      <td>
+        <div class="ui icon basic buttons" *ngIf="!notCurrentPeriod">
+          <button class="ui button">
+            <i class="write icon"></i>
+          </button>
+          <button class="ui button">
+            <i class="trash icon"></i>
+          </button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,19 @@
+.list {
+  width: 100%;
+  margin-bottom: 10px !important;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.list .grid {
+  margin: 0;
+  width: 100%;
+}
+
+.list {
+  display: inline-flex;
+  flex-grow: 2;
+}

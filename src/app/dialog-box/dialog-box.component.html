@@ -1,15 +1,39 @@
 <lsu-modal [(ngModel)]="showModal" [options]="modalOptions">
   <div class="header">
-    Profile Picture
+    Edit Activity
   </div>
-  <div class="image content">
-    <div class="description">
-      <div class="ui header">We've auto-chosen a profile image for you.</div>
-      <p>We've grabbed the following image from the
-        <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
-      <p>Is it okay to use this photo?</p>
+  <form class="ui form">
+    <div class="field">
+      <label>Activity</label>
+      <input type="text" name="first-name" placeholder="Enter Activity...">
     </div>
-  </div>
+    <div class="field">
+      <label>Category</label>
+      <div class="ui selection dropdown">
+        <input type="hidden" name="gender">
+        <i class="dropdown icon"></i>
+        <div class="default text">Select Category...</div>
+        <div class="menu">
+          <div class="item" data-value="1">Category 1</div>
+          <div class="item" data-value="0">Category 2</div>
+        </div>
+      </div>
+    </div>
+    <div class="two fields">
+      <div class="field">
+        <label>Date</label>
+        <div class="ui calendar" id="example1">
+          <div class="ui input left icon">
+            <i class="calendar icon"></i>
+            <input type="text" placeholder="Date/Time">
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Time</label>
+      </div>
+    </div>
+  </form>
   <div class="actions">
     <div class="ui black deny button" (click)="cancel()">
       Nope

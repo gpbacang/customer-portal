@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
@@ -7,18 +7,23 @@ import { BaseChartDirective } from 'ng2-charts';
   styleUrls: ['./activities.component.scss']
 })
 export class ActivitiesComponent implements OnInit {
+  @Input() onEditActivity: boolean;
   pieChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
   pieChartData: number[] = [300, 500, 100];
   pieChartType = 'pie';
-  onEditActivity: boolean;
 
   constructor() { }
 
   ngOnInit() {
+    this.onEditActivity = false;
   }
 
-  editActivity(event) {
+  showModal(event) {
     this.onEditActivity = true;
+  }
+
+  hideModal(event) {
+    this.onEditActivity = false;
   }
 
 }

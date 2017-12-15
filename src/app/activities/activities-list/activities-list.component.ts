@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { DialogService } from '../../dialog/dialog.service';
-import { ActivitiesFormComponent } from '../activities-form/activities-form.component';
+// import { DialogService } from '../../dialog/dialog.service';
+// import { ActivitiesFormComponent } from '../activities-form/activities-form.component';
 
 @Component({
   selector: 'app-activities-list',
@@ -11,15 +11,15 @@ export class ActivitiesListComponent implements OnInit {
   @Output() editActivity = new EventEmitter();
 
   constructor(
-    private dialogService: DialogService
+    // private dialogService: DialogService
   ) { }
 
   ngOnInit() {
   }
 
-  onEdit(activity: any) {
-    // this.editActivity.emit();
-    this.dialogService.open(ActivitiesFormComponent, { title: 'Update Project', process: 'update', activity: activity });
+  onEdit() {
+    this.editActivity.emit();
+    // this.dialogService.open(ActivitiesFormComponent, { title: 'Update Project', process: 'update', activity: activity });
   }
 
 }

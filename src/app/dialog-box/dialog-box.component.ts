@@ -1,14 +1,16 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, Output, EventEmitter, AfterViewInit } from '@angular/core';
 
-import $ from 'jquery';
+// import * as $ from 'jquery';
+declare var $: any;
 
 @Component({
   selector: 'app-dialog-box',
   templateUrl: './dialog-box.component.html',
   styleUrls: ['./dialog-box.component.scss']
 })
-export class DialogBoxComponent implements OnInit, OnChanges {
+export class DialogBoxComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() onEditActivity: boolean;
+  @Output() hideModal = new EventEmitter();
   modalOptions: any;
   showModal: boolean;
 
@@ -18,22 +20,28 @@ export class DialogBoxComponent implements OnInit, OnChanges {
     this.modalOptions = {
       'size': 'small',
       'type': 'default',
-      'closeable': true
+      // 'closeable': true
     };
-    // $('.ui.modal').modal('show');
+  }
+
+  ngAfterViewInit() {
+    // $('.ui.selection.dropdown').dropdown();
   }
 
   activeModal(): void {
     this.showModal = true;
+    $('.ui.selection.dropdown').dropdown();
+    $('#example1').calendar({
+      type: 'date'
+    });
   }
 
   cancel(): void {
     this.showModal = false;
-    this.onEditActivity = false;
+    this.hideModal.emit();
   }
 
   ngOnChanges(changes: any) {
-    console.log(this.onEditActivity);
     if (this.onEditActivity === true) {
       this.showDialog();
     }
@@ -43,7 +51,6 @@ export class DialogBoxComponent implements OnInit, OnChanges {
     if (this.onEditActivity === true) {
       this.activeModal();
     }
-    // this.activeModal();
   }
 
 }

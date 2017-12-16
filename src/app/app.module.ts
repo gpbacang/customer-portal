@@ -13,6 +13,7 @@ import { L_SEMANTIC_UI_MODULE } from 'angular2-semantic-ui';
 import { DatePickerComponent } from './datepicker/datepicker.component';
 import { DatePickerDirective } from './datepicker/datepicker.directive';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     BrowserModule,
     FormsModule,
     ChartsModule,
-    L_SEMANTIC_UI_MODULE
+    L_SEMANTIC_UI_MODULE,
+    HttpClientModule
   ],
   providers: [
     DatePickerDirective,

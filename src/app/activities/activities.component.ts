@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-activities',
@@ -12,14 +13,22 @@ export class ActivitiesComponent implements OnInit {
   pieChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
   pieChartData: number[] = [300, 500, 100];
   pieChartType = 'pie';
+  activities: any;
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   ngOnInit() {
+    this.http.get('http://sycophantic-hand.000webhostapp.com/getData.php').subscribe(data => {
+      this.activities = data;
+    });
+
     this.onEditActivity = false;
   }
 
-  showModal(event) {
+  showModal(activity: any) {
+    console.log(activity);
     this.onEditActivity = true;
   }
 

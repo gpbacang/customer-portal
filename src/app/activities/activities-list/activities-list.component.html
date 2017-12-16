@@ -4,54 +4,20 @@
       <th>Activity</th>
       <th>Category</th>
       <th>Date</th>
-      <th>Time</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Activity 1</td>
-      <td>Category 1</td>
-      <td>08/12/2017</td>
-      <td>13:45</td>
+    <tr *ngFor="let activity of activities">
+      <td>{{ activity.activity_name }}</td>
+      <td>{{ activity.category }}</td>
+      <td>{{ activity.activity_date }}</td>
       <td>
         <div class="ui icon basic buttons">
-          <button class="ui button" (click)="onEdit()">
+          <button class="ui button" (click)="onEdit(activity)">
             <i class="write icon"></i>
           </button>
-          <button class="ui button" (click)="onDelete()">
-            <i class="trash icon"></i>
-          </button>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>Activity 1</td>
-      <td>Category 1</td>
-      <td>08/12/2017</td>
-      <td>13:45</td>
-      <td>
-        <div class="ui icon basic buttons">
-          <button class="ui button">
-            <i class="write icon"></i>
-          </button>
-          <button class="ui button">
-            <i class="trash icon"></i>
-          </button>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>Activity 1</td>
-      <td>Category 1</td>
-      <td>08/12/2017</td>
-      <td>13:45</td>
-      <td>
-        <div class="ui icon basic buttons">
-          <button class="ui button">
-            <i class="write icon"></i>
-          </button>
-          <button class="ui button">
+          <button class="ui button" (click)="onDelete(activity)">
             <i class="trash icon"></i>
           </button>
         </div>

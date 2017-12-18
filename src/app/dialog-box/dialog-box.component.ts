@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, OnChanges, Output, EventEmitter, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Activities } from '../shared/activities';
 
-// import * as $ from 'jquery';
 declare var $: any;
 
 @Component({
@@ -8,11 +8,12 @@ declare var $: any;
   templateUrl: './dialog-box.component.html',
   styleUrls: ['./dialog-box.component.scss']
 })
-export class DialogBoxComponent implements OnInit, OnChanges, AfterViewInit {
-  @Input() onEditActivity: boolean;
+export class DialogBoxComponent implements OnInit, OnChanges {
+  @Input() activity: Activities;
+  @Input() showModal: boolean;
   @Output() hideModal = new EventEmitter();
+  @Output() updateActivity = new EventEmitter();
   modalOptions: any;
-  showModal: boolean;
 
   constructor() { }
 
@@ -20,17 +21,7 @@ export class DialogBoxComponent implements OnInit, OnChanges, AfterViewInit {
     this.modalOptions = {
       'size': 'small',
       'type': 'default',
-      // 'closeable': true
     };
-  }
-
-  ngAfterViewInit() {
-    // $('.ui.selection.dropdown').dropdown();
-  }
-
-  activeModal(): void {
-    this.showModal = true;
-    $('.ui.selection.dropdown').dropdown();
   }
 
   cancel(): void {
@@ -39,15 +30,20 @@ export class DialogBoxComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   ngOnChanges(changes: any) {
-    if (this.onEditActivity === true) {
-      this.showDialog();
+    if (this.showModal === true) {
+      this.showModal = true;
+      $('#activityName').val(this.activity.activity_name);
+      $('#activityDate').val(this.activity.activity_date);
     }
   }
 
-  showDialog() {
-    if (this.onEditActivity === true) {
-      this.activeModal();
-    }
+  update(name, date) {
+    const activity = {
+      'id': this.activity.id,
+      'activity_name': name,
+      'activity_date': date
+    };
+    this.updateActivity.emit(activity);
+    this.cancel();
   }
-
 }

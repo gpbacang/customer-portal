@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Activities } from '../shared/activities';
 
 // import { DialogService } from '../../dialog/dialog.service';
 // import { ActivitiesFormComponent } from '../activities-form/activities-form.component';
@@ -9,9 +10,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./activities-list.component.scss']
 })
 export class ActivitiesListComponent implements OnInit {
-  @Output() editActivity = new EventEmitter();
-  @Output() deleteActivity = new EventEmitter();
+  @Output() updateactivity = new EventEmitter();
+  @Output() hidemodal = new EventEmitter();
   @Input() activities: any;
+  showModal = false;
+  selectedActivity: Activities;
 
   constructor() { }
 
@@ -19,12 +22,16 @@ export class ActivitiesListComponent implements OnInit {
   }
 
   onEdit(activity: any) {
-    this.editActivity.emit(activity);
-    // this.dialogService.open(ActivitiesFormComponent, { title: 'Update Project', process: 'update', activity: activity });
+    this.selectedActivity = activity;
+    this.showModal = true;
   }
 
-  onDelete(activity: any) {
-    this.deleteActivity.emit(activity);
+  updateActivity(event) {
+    this.updateactivity.emit(event);
+  }
+
+  hideModal(event) {
+    this.showModal = false;
   }
 
 }

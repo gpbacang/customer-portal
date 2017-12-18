@@ -1,41 +1,48 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 import { ActivitiesComponent } from './activities/activities.component';
-import { ActivitiesListComponent } from './activities/activities-list/activities-list.component';
+import { ActivitiesListComponent } from './activities-list/activities-list.component';
 
 import { ChartsModule } from 'ng2-charts';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 import { L_SEMANTIC_UI_MODULE } from 'angular2-semantic-ui';
 import { DatePickerComponent } from './datepicker/datepicker.component';
 import { DatePickerDirective } from './datepicker/datepicker.directive';
-import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth-guard.service';
+import { AuthService } from './auth.service';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     ActivitiesComponent,
     ActivitiesListComponent,
     DialogBoxComponent,
     DatePickerDirective,
     DatePickerComponent,
-    ConfirmationDialogComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     ChartsModule,
     L_SEMANTIC_UI_MODULE,
-    HttpClientModule
+    HttpModule,
+    RouterModule,
+    AppRoutingModule
   ],
   providers: [
     DatePickerDirective,
-    DatePickerComponent
+    DatePickerComponent,
+    AuthService,
+    AuthGuard
   ],
   entryComponents: [
     DatePickerComponent

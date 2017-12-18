@@ -1,0 +1,22 @@
+<div class="ui grid">
+  <h2 class="ui header">
+    <img src="assets/calendar.png" alt="">
+    <div class="content">
+      Schedule Activities Login
+      <div class="sub header">Lorem ipsum dolor sit amet, consectetur.</div>
+    </div>
+  </h2>
+  <div class="form-container">
+    <form class="ui form">
+      <div class="field">
+        <label>Username</label>
+        <input type="text" name="username" placeholder="Enter username..." #username>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter password..." #password>
+      </div>
+    </form>
+    <button class="ui primary button" (click)="onLogin(username.value, password.value)">Sign In</button>
+  </div>
+</div>

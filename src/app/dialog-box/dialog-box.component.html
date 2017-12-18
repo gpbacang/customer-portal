@@ -2,51 +2,30 @@
   <div class="header">
     Edit Activity
   </div>
-  <form class="ui form">
+  <form class="ui form" id="activity-form">
     <div class="field">
       <label>Activity</label>
-      <input type="text" name="first-name" placeholder="Enter Activity...">
+      <input type="text"
+             id="activityName"
+             name="activityName" 
+             placeholder="Enter Activity..."
+            #activityName>
     </div>
-    <div class="field">
-      <label>Category</label>
-      <div class="ui selection dropdown">
-        <input type="hidden" name="gender">
-        <i class="dropdown icon"></i>
-        <div class="default text">Select Category...</div>
-        <div class="menu">
-          <div class="item" data-value="1">Category 1</div>
-          <div class="item" data-value="0">Category 2</div>
-        </div>
-      </div>
-    </div>
-    <div class="two fields">
       <div class="field">
         <label>Date</label>
         <div id="date" class="date field">
-          <input type="text" placeholder="yyyy/mm/dd" appDatePicker date-only="true" date-format="YYYY/MM/DD">
-        </div>
-        <!-- <div class="ui calendar" id="example1">
-          <div class="ui input left icon">
-            <i class="calendar icon"></i>
-            <input type="text" placeholder="Date/Time">
-          </div>
-        </div> -->
-      </div>
-      <div class="field">
-        <label>Time</label>
-        <div id="time" class="field">
-          <input type="text" placeholder="hh:mm" appDatePicker time-only="true" date-format="HH:MM">
+          <input type="text" 
+                 id="activityDate"
+                 placeholder="yyyy-mm-dd" 
+                 appDatePicker 
+                 date-only="true" 
+                 date-format="YYYY-MM-DD"
+                #activityDate>
         </div>
       </div>
-    </div>
   </form>
   <div class="actions">
-    <div class="ui black deny button" (click)="cancel()">
-      Nope
-    </div>
-    <div class="ui positive right labeled icon button" (click)="cancel()">
-      Yep, that's me
-      <i class="checkmark icon"></i>
-    </div>
+    <div class="ui button" (click)="cancel()">Cancel</div>
+    <div class="ui primary button" (click)="update(activityName.value, activityDate.value)">Update</div>
   </div>
 </lsu-modal>

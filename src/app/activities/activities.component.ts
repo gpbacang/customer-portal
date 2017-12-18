@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Activities } from '../shared/activities';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-activities',
@@ -10,29 +12,43 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class ActivitiesComponent implements OnInit {
   @Input() onEditActivity: boolean;
   @Input() onDeleteActivity: boolean;
-  pieChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
+  pieChartLabels: string[] = ['Activity 1', 'Activity 2', 'Activity 3'];
   pieChartData: number[] = [300, 500, 100];
   pieChartType = 'pie';
-  activities: any;
+  activity: Activities;
+  activities: Activities[] = [
+    {
+      id: 1,
+      activity_name: 'This is a test activity',
+      activity_date: '2017-12-20'
+    },
+    {
+      id: 2,
+      activity_name: 'This is a test activity 2',
+      activity_date: '2017-12-18'
+    },
+    {
+      id: 3,
+      activity_name: 'This is a test activity 3',
+      activity_date: '2017-12-25'
+    }
+  ];
 
   constructor(
-    private http: HttpClient
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit() {
-    this.http.get('http://sycophantic-hand.000webhostapp.com/getData.php').subscribe(data => {
-      this.activities = data;
-    });
-
     this.onEditActivity = false;
   }
 
-  showModal(activity: any) {
-    console.log(activity);
+  showModal(activity: Activities) {
     this.onEditActivity = true;
+    this.activity = activity;
   }
 
-  hideModal(event) {
+  hidemodal(event) {
     this.onEditActivity = false;
   }
 
@@ -42,6 +58,19 @@ export class ActivitiesComponent implements OnInit {
 
   deleteActivity(event) {
     this.onDeleteActivity = true;
+  }
+
+  updateactivity(event: Activities) {
+    this.activities[event.id - 1] = {
+      'id': event.id,
+      'activity_name': event.activity_name,
+      'activity_date': event.activity_date
+    };
+  }
+
+  onLogout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
 }

@@ -5,20 +5,19 @@
        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     </div>
     <div class="page-actions">
-      <button class="ui primary medium button fluid">Add Activity</button>
+      <button class="ui primary medium button fluid" (click)="onLogout()">Sign Out</button>
     </div>
   </div>
   <div class="page-content">
     <div class="ui grid">
-      <!-- <div class="list-header">
-        <span class="large number-of-items">
-          <i class="building outline icon"></i>
-          {{ activities.length }} Activities
-        </span>
-      </div> -->
       <div class="ten wide column">
         <div class="list-content">
-          <app-activities-list (editActivity)="showModal($event)" (deleteActivity)="deleteActivity($event)" [activities]="activities"></app-activities-list>
+          <app-activities-list 
+            (editActivity)="showModal($event)" 
+            (deleteActivity)="deleteActivity($event)" 
+            (updateactivity)="updateactivity($event)"
+            (hidemodal)="hidemodal($event)"
+            [activities]="activities"></app-activities-list>
         </div>
       </div>
       <div class="six wide column">
@@ -33,5 +32,3 @@
     </div>
   </div>
 </div>
-<app-dialog-box [onEditActivity]="onEditActivity" (hideModal)="hideModal($event)"></app-dialog-box>
-<app-confirmation-dialog [onDeleteActivity]="onDeleteActivity" (hideModal)="hideConfirmation($event)"></app-confirmation-dialog>

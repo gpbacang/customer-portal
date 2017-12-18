@@ -2,7 +2,6 @@
   <thead>
     <tr>
       <th>Activity</th>
-      <th>Category</th>
       <th>Date</th>
       <th></th>
     </tr>
@@ -10,18 +9,18 @@
   <tbody>
     <tr *ngFor="let activity of activities">
       <td>{{ activity.activity_name }}</td>
-      <td>{{ activity.category }}</td>
       <td>{{ activity.activity_date }}</td>
       <td>
         <div class="ui icon basic buttons">
           <button class="ui button" (click)="onEdit(activity)">
             <i class="write icon"></i>
           </button>
-          <button class="ui button" (click)="onDelete(activity)">
-            <i class="trash icon"></i>
-          </button>
         </div>
       </td>
     </tr>
   </tbody>
 </table>
+<app-dialog-box [showModal]="showModal" 
+                [activity]="selectedActivity" 
+                (updateActivity)="updateActivity($event)"
+                 (hideModal)="hideModal($event)"></app-dialog-box>
